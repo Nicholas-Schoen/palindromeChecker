@@ -1,0 +1,65 @@
+** start of undefined **
+
+<DOCTYPE html>
+<html lang= en>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href=styles.css>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palindrome Checker</title>
+  </head>
+  <body>
+    <main class="container">
+      <h1 class="title">Is It a Palindrome?</h1>
+      <div class="palindrome-div">
+        <label for="text-input">Enter in text to see if it a palindrome</label>
+        <input class="palindrome-input" id="text-input" type="text"></input>
+        <button class="palindrome-button" id="check-btn">check</button>
+        <div class="result-div" id="result"></div>
+      </div>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
+
+** end of undefined **
+
+** start of undefined **
+
+
+
+** end of undefined **
+
+** start of undefined **
+
+const textInput = document.getElementById("text-input");
+const checkButton = document.getElementById("check-btn");
+const resultMessage = document.getElementById("result");
+
+function checkForPalindrome() {
+  const originalInput = textInput.value;
+
+  if (originalInput === '') {
+    alert('Please input a value');
+    return; 
+  } else {
+    isPalindrome(originalInput);
+  }
+}
+
+function isPalindrome(input) {
+  const forwardText = input.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
+  const reverseText = forwardText.split('').reverse().join('');
+
+  if (forwardText === reverseText) {
+    resultMessage.innerHTML = `<p>${input} is a palindrome</p>`;
+  } else {
+    resultMessage.innerHTML = `<p>${input} is not a palindrome</p>`;
+  }
+}
+
+checkButton.addEventListener("click", checkForPalindrome);
+
+
+** end of undefined **
+
